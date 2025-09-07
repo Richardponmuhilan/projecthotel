@@ -1,0 +1,240 @@
+:root{
+    --bg: #070707;
+    --card: #0f1112;
+    --muted: rgba(255,255,255,0.75);
+    --gold-1: #e1b56a;
+    --gold-2: #b77a2a;
+    --accent: #aa4940;
+  }
+  
+  /* container + header */
+  .gallery-section {
+    background: transparent;
+    padding: 2.25rem 0;
+  }
+  .gallery-header {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0 1.2rem;
+    box-sizing: border-box;
+  }
+  .gallery-heading-inner {
+    display: flex;
+    flex-direction: column;
+  }
+  .gallery-title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+    color: orange; /* fallback */
+    color: var(--bg); /* dark background variable - will be inverted by context if needed */
+    /* we'll style more for contrast below */
+    color:orange;
+  }
+  .gallery-sub {
+    margin: 6px 0 0 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+  }
+  
+  /* decorative underline (gold) */
+  .gallery-underline {
+    width: 220px;
+    height: 4px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+    box-shadow: 0 6px 20px rgba(183,122,42,0.12);
+  }
+  
+  /* dark-site adjustments: make header appear elegant over white/dark backgrounds */
+  /* If your page has a dark background, invert header colors to light text. Use .dark-page on body if needed */
+  body.dark .gallery-title,
+  .gallery-section.dark .gallery-title {
+    color: #fff;
+  }
+  body.dark .gallery-sub,
+  .gallery-section.dark .gallery-sub {
+    color: rgba(255,255,255,0.75);
+  }
+  
+  /* gallery internals */
+  .gallery-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* main swiper wrapper */
+  .gallery-main {
+    width: 100%;
+    max-width: 1180px;
+    padding: 1.5rem 2rem;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  /* slide card */
+  .slide-card{
+    width: 100%;
+    height: 460px;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    transform-origin: center center;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.65);
+    border: 1px solid rgba(255,255,255,0.03);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+  }
+  
+  /* image */
+  .slide-card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .55s ease;
+  }
+  
+  /* subtle overlay for contrast */
+  .slide-overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.28) 60%);
+    pointer-events: none;
+  }
+  
+  /* caption */
+  .slide-caption{
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    z-index: 6;
+    color: var(--gold-1);
+    font-weight: 700;
+    text-shadow: 0 8px 18px rgba(0,0,0,0.6);
+    font-size: 1.05rem;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.28);
+  }
+  
+  /* active / centered slide — emphasize */
+  .gallery-main .swiper-slide-active .slide-card{
+    box-shadow: 0 18px 60px rgba(0,0,0,0.7), 0 2px 0 rgba(0,0,0,0.2) inset;
+    border: 1px solid rgba(255,255,255,0.06);
+    transform: scale(1.02);
+  }
+  .gallery-main .swiper-slide-active .slide-card img {
+    transform: scale(1.04);
+  }
+  
+  /* nav buttons */
+  .gallery-nav {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+    z-index: 30;
+  }
+  .nav-btn{
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.18));
+    color: var(--gold-2);
+    border: 1px solid rgba(255,255,255,0.04);
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    display: inline-grid;
+    place-items: center;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  }
+  .nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.65);
+  }
+  
+  /* thumbnails */
+  .gallery-thumbs{
+    width: 100%;
+    max-width: 1180px;
+    padding: 8px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .thumb-slide{
+    height: 72px;
+  }
+  .thumb-inner{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  }
+  .thumb-inner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(0.1) contrast(0.9) brightness(0.95);
+    transition: transform .25s ease, filter .25s ease, opacity .25s ease;
+  }
+  
+  /* active thumb style */
+  .gallery-thumbs .swiper-slide-thumb-active .thumb-inner{
+    border-color: var(--gold-1);
+    transform: scale(1.03);
+    box-shadow: 0 12px 30px rgba(183,122,42,0.12);
+  }
+  .gallery-thumbs .swiper-slide-thumb-active img{
+    filter: none;
+    transform: scale(1.03);
+    opacity: 1;
+  }
+  
+  /* responsiveness */
+  @media (max-width: 1200px){
+    .slide-card { height: 420px; }
+    .gallery-main { padding: 1rem 1.2rem; }
+  }
+  @media (max-width: 900px){
+    .gallery-main .swiper-slide { width: 300px !important; }
+    .slide-card { height: 360px; border-radius: 10px; }
+    .gallery-thumbs { padding: 6px 10px; }
+  }
+  @media (max-width: 576px){
+    .gallery-main .swiper-slide { width: 240px !important; }
+    .slide-card { height: 260px; }
+    .gallery-thumbs .thumb-slide { height: 48px; }
+  }
+  
+  /* small adjustment: header responsive */
+  @media (max-width: 768px) {
+    .gallery-header { padding: 0 12px; flex-direction: column; align-items: flex-start; gap: 6px; }
+    .gallery-underline { width: 120px; height: 3px; }
+    .gallery-title { font-size: 1.4rem; color: #111; }
+    .gallery-sub { color: rgba(0,0,0,0.5); }
+  }
+  
+  /* If your site uses a dark page class, style header text for contrast */
+  body.dark .gallery-title,
+  .gallery-section.dark .gallery-title {
+    color: #fff;
+  }
+  body.dark .gallery-sub,
+  .gallery-section.dark .gallery-sub {
+    color: rgba(255,255,255,0.75);
+  }
+  

@@ -1,0 +1,102 @@
+/* Carousel Heading */
+.carousel-heading {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff; /* ✅ White base text */
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5); /* ✅ Better readability */
+  }
+  
+  .carousel-heading .highlight-red {
+    color: #e50914; /* Red */
+  }
+  
+  .carousel-heading .highlight-orange {
+    color: #f89c1c; /* Orange */
+  }
+  
+  /* Existing carousel styles (from your code) */
+  .site-header {
+    --overlay-gradient: linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.6));
+  }
+  
+  .carousel-slide {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    color: var(--text-primary) !important;
+    filter: contrast(0.98) saturate(0.9);
+  }
+  
+  .muted-subtitle {
+    color: var(--text-muted) !important;
+    letter-spacing: 0.02em;
+  }
+  
+  .main-title {
+    color: var(--text-primary) !important;
+    font-size: clamp(1.8rem, 3.5vw, 3.6rem);
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .lead-text {
+    color: var(--text-muted) !important;
+    max-width: 55ch;
+    font-size: 1.05rem;
+  }
+  
+  /* Contact button */
+  .contact-btn {
+    background: linear-gradient(90deg, var(--primary), var(--primary-600)) !important;
+    color: #0b0b0c !important;
+    border: none !important;
+  }
+  
+  /* Carousel controls */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 2.2rem;
+    height: 2.2rem;
+    filter: invert(1) drop-shadow(0 1px 4px rgba(0,0,0,0.5));
+    background-color: rgba(255,255,255,0.12);
+    border-radius: 50%;
+    padding: 0.2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.2rem 1.2rem;
+  }
+  
+  /* Indicators */
+  .carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.6);
+    transition: transform 0.15s ease-in-out;
+  }
+  
+  .carousel-indicators .active {
+    transform: scale(1.2);
+    background-color: var(--primary) !important;
+  }
+  
+  .caption-wrap {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-bottom: 0;
+  }
+  
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .carousel-heading { font-size: 2rem; }
+    .lead-text { font-size: 0.98rem; max-width: 90%; }
+    .carousel-slide { min-height: 60vh; padding-top: 3rem; }
+  }
+  
+  .section-surface {
+    background: var(--surface) !important;
+    color: var(--text-primary) !important;
+  }
+  

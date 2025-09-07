@@ -1,0 +1,167 @@
+/* theme.css — Fixed dark theme (syntax corrected, safer !important usage) */
+
+/* Dark Elegant theme variables (restored & fixed) */
+:root{
+  --bg-default: #0b0b0c;
+  --surface: #0f1112;
+  --muted-surface: #151516;
+  --text-primary: #f3f4f6;
+  --text-muted: #c7c9cc;
+  --primary: #d9a451; /* warm gold accent */
+  --primary-600: #c18f44;
+  --accent: #b2862f;
+  --danger: #ef4444;
+  --success: #10b981;
+  --glass: rgba(255,255,255,0.04);
+}
+
+/* ------------------------------------------------------------------
+   Base / body
+   ------------------------------------------------------------------ */
+html, body {
+  height: 100%;
+}
+
+body{
+  background-color: var(--bg-default);
+  color: var(--text-primary);
+  font-family: 'Hind Madurai', sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ------------------------------------------------------------------
+   Header / navbar / footer surfaces
+   ------------------------------------------------------------------ */
+.header, .navbar, .footer {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  color: var(--text-primary);
+}
+
+/* --- Navbar override: make it light-friendly --- */
+.navbar, .navbar-light, .navbar-dark, .site-header, header {
+  background-color: #f8f9fa !important; /* soft light gray */
+  color: #0b0b0c !important;           /* dark text for contrast */
+  border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+}
+
+/* Ensure nav links/buttons adapt to dark text */
+.navbar .navbar-brand,
+.navbar .nav-link,
+.navbar .nav-link:focus,
+.navbar .nav-link:hover {
+  color: #0b0b0c !important;
+}
+
+
+.footer, .site-footer, footer {
+  background: transparent !important;
+  color: var(--text-muted) !important;
+}
+
+/* ------------------------------------------------------------------
+   Buttons
+   ------------------------------------------------------------------ */
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary), var(--primary-600));
+  color: #0b0b0c;
+  border: none;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: var(--text-primary);
+}
+
+/* Generic button overrides */
+.btn, .btn-primary, .btn-outline, button, .menu-btn {
+  background: linear-gradient(90deg, var(--primary), var(--primary-600));
+  color: #0b0b0c;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+}
+
+/* ------------------------------------------------------------------
+   Cards and surfaces
+   ------------------------------------------------------------------ */
+.card, .card-body, .menu-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  color: var(--text-primary);
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(2,6,10,0.35);
+}
+
+/* Utility for forcing surface on sections */
+.section-surface { 
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+/* ------------------------------------------------------------------
+   Links
+   ------------------------------------------------------------------ */
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* keep link color consistent */
+a, .link {
+  color: var(--primary);
+}
+
+/* ------------------------------------------------------------------
+   Images — no border, subtle shadow & softened look
+   ------------------------------------------------------------------ */
+img {
+  border: none;
+  filter: contrast(0.98) saturate(0.9);
+  /* box-shadow: 0 6px 18px rgba(0,0,0,0.6); slightly stronger for dark bg */
+  border-radius: 6px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ------------------------------------------------------------------
+   Utility & layout
+   ------------------------------------------------------------------ */
+.muted { color: var(--text-muted); }
+
+.container {
+  background: transparent;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* header tuning */
+header {
+  background-size: cover;
+  background-position: center;
+}
+
+/* responsive header title sizing */
+header h1 {
+  font-size: 4.5rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  header h1 {
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  header h1 {
+    font-size: 3rem;
+  }
+}
