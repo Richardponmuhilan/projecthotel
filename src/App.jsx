@@ -12,6 +12,7 @@ import OfferPage from './pages/offerpage/offerpage';
 import logo from './utils/images/indian_spice_house_logo.png';
 import OrderOnline from "./components/OrderOnline/OrderOnline";
 import "leaflet/dist/leaflet.css";
+import ReservationPage from './pages/ReservationPage/ReservationPage';
 
 
 <Route path="/order" element={<OrderOnline />} />
@@ -64,7 +65,7 @@ function App() {
             <Link to="/offers" className={`nav-item ${isActive('/offers') ? 'active' : ''}`}>Offers</Link>
             <Link to="/about" className={`nav-item ${isActive('/about') ? 'active' : ''}`}>About</Link>
             <Link to="/contact" className={`nav-item ${isActive('/contact') ? 'active' : ''}`}>Contact</Link>
-            <Link to="/contact" className="cta">Book a table</Link>
+            <Link to="/book" className="cta">Book a table</Link>
             <Link to="/order" className="cta">Order Online</Link>
           </nav>
 
@@ -126,7 +127,7 @@ Offers  </Link>
     Contact
   </Link>
   <Link 
-    to="/contact" 
+    to="/book" 
     className="mobile-link"
     onClick={() => setMobileOpen(false)}
   >
@@ -158,6 +159,7 @@ Offers  </Link>
           <Route path='/contact' element={<Contact />} />
           <Route path='/offers' element={<OfferPage />} />
           <Route path="/order" element={<OrderOnline />} />
+          <Route path="/book" element={<ReservationPage />} />
 
         </Routes>
       </main>

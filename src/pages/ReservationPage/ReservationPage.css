@@ -1,0 +1,71 @@
+/* Reservation page container */
+.reservation-page {
+    color: #fff;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  
+  /* Hero section */
+  .reservation-hero {
+    position: relative;
+    height: 40vh;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)
+      ),
+      url("../../utils/images/table-book.jpg"); /* replace with your image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .reservation-hero-overlay {
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .reservation-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    color: #f89c1c;;
+  }
+  
+  .reservation-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  
+  /* Main content */
+  .reservation-main {
+    padding: 3rem 1rem;
+    width: 100%;
+  }
+  
+  .reservation-content {
+    display: flex;
+  justify-content: center;
+  margin: 0 auto;
+    
+  }
+  
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    .reservation-hero {
+      height: 30vh;
+    }
+    .reservation-title {
+      font-size: 1.8rem;
+    }
+    .reservation-subtitle {
+      font-size: 1rem;
+    }
+    .reservation-main {
+      padding: 2rem 1rem;
+    }
+  }
+  
