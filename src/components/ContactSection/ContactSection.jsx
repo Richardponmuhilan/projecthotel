@@ -17,6 +17,7 @@ function ContactSection() {
                     initial={{ opacity: 0, x: 350 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1 }}
+                    viewport={{ once: false, amount: 0.01 }}
                 >
                     <img src={ContactSectionImg} className='img-fluid' alt="" />
                 </motion.div>
