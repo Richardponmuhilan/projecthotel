@@ -71,10 +71,7 @@ export default function OfferPage() {
       {hoveredIndex !== null && <div className="offers-dim-overlay" aria-hidden="true" />}
 
       {/* Explore button */}
-      <div className="d-flex justify-content-center mt-4">
-        <a href="/offers" className="btn explore-offers-btn">Explore More Offers</a>
-      </div>
-
+  
       {/* Coupons */}
       <div className="coupons-wrapper mt-5">
         <h3 className="mb-3">Available Promo Codes</h3>
