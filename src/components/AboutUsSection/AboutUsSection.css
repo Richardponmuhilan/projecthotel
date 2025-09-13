@@ -1,419 +1,330 @@
-/* AboutUsSection.css - section background + content + features */
+/* ================= AboutUsSection.css =================
+   Cleaned & responsive styles with mobile-friendly slider
+   ===================================================== */
 
-/* Whole section background (BgImage set inline in JSX) */
+/* ---------------- Section base & overlay ---------------- */
 .about-section {
-    position: relative;
-    padding: 3.5rem 0;
-    color: var(--text-primary);
-    background-attachment: scroll; /* use 'fixed' for parallax if desired */
-  }
-  
-  /* semi-transparent overlay for readability */
-  .about-overlay {
-    background: rgba(0, 0, 0, 0.45); /* adjust opacity if needed */
-    width: 100%;
-    height: 100%;
-    padding: 2rem 0;
-  }
-  
-  /* existing about image styling */
+  position: relative;
+  padding: 3.5rem 0;
+  color: var(--text-primary);
+}
+
+.about-overlay {
+  background: rgba(0, 0, 0, 0.45);
+  width: 100%;
+  height: 100%;
+  padding: 2rem 0;
+}
+
+/* ---------------- About image ---------------- */
+.about-section-img {
+  width: 75%;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 576px) {
   .about-section-img {
-    width: 75%;
-    border-radius: 12px;
-    object-fit: cover;
-  }
-  @media only screen and (max-width: 576px) {
-    .about-section-img {
-      width: 100%;
-    }
-  }
-  
-  /* Text styling inside about */
-  .about-section h2,
-  .about-section p {
-    color: var(--text-primary) !important;
-  }
-  
-  /* Button override if you want gold accent: you can keep btn-dark or use this */
-  .about-section .btn.btn-dark {
-    background: linear-gradient(90deg, var(--primary), var(--primary-600)) !important;
-    color: #0b0b0c !important;
-    border: none !important;
-  }
-  
-  /* ---------------- Features grid styles ---------------- */
-  
-  .features-section {
-    margin-top: 3.5rem;
-    padding-top: 0.5rem;
-  }
-  
-  /* wrapper to control spacing and equal columns */
-  .features-grid {
-    gap: 2.5rem;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  /* each card */
-  /* .feature-card {
-    flex: 1 1 30%;
-    max-width: 33%;
-    padding: 2.2rem 1.5rem;
-    background: transparent; /* keep transparent to match screenshot; change to var(--surface) if you want boxes */
-    /* text-align: center;
-    border-radius: 8px;
-    box-sizing: border-box;
-    will-change: transform, opacity, filter;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }  */
-  
-  /* icon circle area */
-  .feature-icon {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.2rem;
   }
-  .feature-icon img {
-    width: 84px;           /* icon size — tweak as needed */
-    height: 84px;
-    object-fit: contain;
-    border-radius: 50%;
-    background: transparent;
-    padding: 6px;
-  }
-  
-  /* title */
-  .feature-title {
-    font-weight: 800;
-    font-size: 1.9rem;
-    line-height: 1.05;
-    color: #f89c1c;
-    margin: 0.25rem 0 1rem;
-  }
-  
-  /* description */
-  .feature-desc {
-    color: var(--text-muted);
-    max-width: 26rem;
-    margin: 0 auto;
-    font-size: 0.98rem;
-    line-height: 1.6;
-  }
-  
-  /* CTA button */
-  .features-cta {
-    background: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-    padding: 0.6rem 2.2rem;
-    border-radius: 999px;
-    transition: all 0.18s ease;
-  }
-  .features-cta:hover {
-    background: linear-gradient(90deg, var(--primary), var(--primary-600));
-    color: #0b0b0c;
-    border-color: var(--primary);
-    transform: translateY(-2px);
-  }
-  
-  /* Responsive breakpoints */
-  @media (max-width: 992px) {
-    .feature-card {
-      flex: 1 1 45%;
-      max-width: 45%;
-      padding: 1.6rem;
-    }
-    .feature-title { font-size: 1.5rem; }
-  }
-  
-  @media (max-width: 576px) {
-    .features-grid { flex-direction: column; gap: 1.25rem; }
-    .feature-card { max-width: 100%; flex-basis: 100%; padding: 1.2rem; }
-    .feature-icon img { width: 68px; height: 68px; }
-    .feature-title { font-size: 1.35rem; }
-    .feature-desc { max-width: 100%; font-size: 0.95rem; }
-    .features-cta { padding: 0.55rem 1.6rem; }
-  }
-  
-  /* small utility for forcing surface look if needed */
-  .section-surface {
-    background: var(--surface) !important;
-    color: var(--text-primary) !important;
-  }
+}
 
-  
-  /* Headline styling */
+/* ---------------- Headline & text ---------------- */
 .headline {
-    font-weight: 800;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    line-height: 1.2;
-  }
-  
-  .headline .white {
-    color: #fff !important;
-  }
-  
-  .headline .highlight {color: #f89c1c;
-    
-  }
-  
-  /* Subheading */
-  .subhead {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: #fff !important;
-  }
-  
-  /* Description paragraph */
-  .desc {
-    color: var(--text-muted) !important;
-    font-size: 1rem;
-    line-height: 1.6;
-    max-width: 45ch;
-  }
-  /* ====== Highlight Dishes Section ====== */
-.highlights-section {
-    background: linear-gradient(to bottom, #fff, #fdfdfd);
-  }
-  
-  .highlights-wrapper {
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    padding: 2rem 1rem;
-    gap: 1rem;
-  }
-  
-  .highlight-card {
-    padding: 1rem;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  
-  .highlight-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-  }
-  
-  .highlight-img {
-    width: 90px;
-    height: 90px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid #f5f5f5;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
-  
-  /* Responsive tweaks */
-  @media (max-width: 768px) {
-    .highlights-wrapper {
-      flex-direction: column;
-      text-align: center;
-    }
-    .highlight-card {
-      margin-bottom: 1rem;
-    }
-  }
-  /* Add spacing between slides */
-.slick-slide {
-    padding: 1rem;
-  }
-  
-  .feature-card {
-    position: relative;
-    border-radius: 12px;
-    height: 320px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    text-align: center;
-    background-color: #111; /* solid background */
-    overflow: hidden;
-    color: #fff;
-  }
-  
-  .card-bg-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.35;  /* faint, acts like background */
-    z-index: 0;
-  }
-  
-  .feature-card h3,
-  .feature-card p {
-    position: relative;
-    z-index: 1;
-  }
-  
-  
-  
-  /* Highlight center card */
-  .slick-center .feature-card {
-    transform: scale(1.08);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    z-index: 2;
-  }
-  
- 
-  .slick-dots li button:before {
-    font-size: 10px;
-    color: var(--primary);
-  }
-  .slick-dots li.slick-active button:before {
-    color: var(--primary-600);
-  }
-  
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.2;
+}
+.headline .white { color: #fff !important; }
+.headline .highlight { color: var(--primary); }
 
-/* ensure booking row items stretch to equal height */
-.booking-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch; /* important: make children equal height */
-  }
-  
-  /* IMAGE HERO: keep visual look */
-  .booking-img-hero {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    background-position: center center;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.22);
-    min-height: 420px;
-    height: 100%;
-    z-index: 1;
-  }
-  
-  /* overlay for contrast */
-  .booking-img-hero .booking-img-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.36) 60%, rgba(0,0,0,0.52) 100%);
-    border-radius: inherit;
-    z-index: 1;
-  }
-  
-  /* centered hero text (over image) */
-  .booking-hero-inner { position: relative; z-index: 2; text-align: center; color: #fff; max-width: 760px; }
-  .booking-hero-pre { color: #fff; font-size: 1rem; margin-bottom: 0.6rem; font-weight: 500; opacity: 0.95; }
-  .booking-hero-title { color: #fff; margin: 0 0 1.1rem 0; font-size: 2.0rem; line-height: 1.02; font-weight: 800; }
-  
-  /* CTA (image) — keep as before or tweak color */
-  .booking-hero-cta { display: inline-block; padding: 0.65rem 2.1rem; border-radius: 999px; border: 2px solid #aa4940; background: rgba(255,245,235,0.95); color: #aa4940; font-weight: 600; text-decoration: none; z-index: 3; }
-  
-  /* ---------------- DARK / ELEGANT booking card ---------------- */
-  .booking-card.dark {
-    background: linear-gradient(180deg, #0b0d0f 0%, #101214 100%); /* very dark with depth */
-    color: #e6e6e6;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    width: 100%;
-    height: 100%;             /* fill column (matching image) */
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    z-index: 2;
-  }
-  
-  /* headings inside dark card */
-  .booking-card.dark h3 { color: #fff; font-weight: 700; margin-bottom: 0.25rem; }
-  .booking-card.dark .text-muted { color: rgba(255,255,255,0.65); }
-  
-  /* form controls (dark theme) */
-  .booking-card.dark .form-control,
-  .booking-card.dark .form-select {
-    background: #0f1315;
-    border: 1px solid rgba(255,255,255,0.06);
-    color: #e6e6e6;
-    box-shadow: none;
-    border-radius: 8px;
-    padding: 0.5rem 0.75rem;
-  }
-  
-  /* placeholder color */
-  .booking-card.dark .form-control::placeholder { color: rgba(255,255,255,0.45); }
-  
-  /* labels */
-  .booking-card.dark .form-label { color: rgba(255,255,255,0.75); font-weight: 500; }
-  
-  /* time-slot buttons - dark elegant */
-  .time-slots { gap: 0.6rem; }
-  .time-slot-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    padding: 0.45rem 0.65rem;
-    background: linear-gradient(180deg,#1e1b12, #2f2414); /* subtle warm */
-    color: #fde8c4;
-    border: 1px solid rgba(255,255,255,0.06);
-    min-width: 64px;
-    text-align: center;
-    box-shadow: 0 6px 16px rgba(10,10,10,0.45);
-    cursor: pointer;
-  }
-  .time-slot-btn[disabled] {
-    opacity: 0.35;
-    cursor: not-allowed;
-    box-shadow: none;
-    filter: grayscale(0.1);
-  }
-  .time-slot-btn.active {
-    background: linear-gradient(180deg,#caa24f, #b27c2a); /* gold */
-    color: #111;
-    border-color: rgba(0,0,0,0.15);
-    box-shadow: 0 8px 28px rgba(178,124,42,0.18);
-  }
-  
-  /* buttons in form */
-  .booking-card.dark .btn.btn-primary.dark-cta {
-    background: linear-gradient(180deg,#d4a55f,#b77a2a);
-    border: 0;
-    color: #0b0b0b;
-    padding: 0.6rem 1.2rem;
-    border-radius: 10px;
-    box-shadow: 0 8px 30px rgba(183,122,42,0.18);
-  }
-  .booking-card.dark .reset-btn {
-    background: transparent;
-    color: rgba(255,255,255,0.85);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 8px;
-    padding: 0.5rem 0.85rem;
-  }
-  .booking-card.dark .refresh-btn {
-    background: transparent;
-    color: rgba(255,255,255,0.85);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 8px;
-    padding: 0.35rem 0.6rem;
-  }
-  
-  /* small elements */
-  .booking-card.dark .text-muted { color: rgba(255,255,255,0.6); }
-  .booking-card.dark .booking-confirmation.alert { background: rgba(255,255,255,0.04); color: #e6e6e6; border: 1px solid rgba(255,255,255,0.04); }
-  
-  /* spacing + responsive */
-  /* on large screens both image and card should match height — ensure columns stretch */
-  .booking-row > [class*="col-"] { display: flex; flex-direction: column; }
-  
-  /* smaller screens: stack normally and remove forced equal height */
-  @media (max-width: 991px) {
-    .booking-img-hero { min-height: 220px; padding: 1.25rem; }
-    .booking-card.dark { height: auto; margin-top: 1.25rem; }
-  }
-  
-  /* extra breathing room above booking section so previous CTA isn't overlapped */
-  .booking-section { margin-top: 3.5rem; }
-  
+.subhead {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #fff !important;
+}
+.desc {
+  color: var(--text-muted) !important;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 45ch;
+}
+
+/* ---------------- Features slider (slick) ----------------
+   Key goals:
+   - on mobile: each slick-slide/card occupies full width (no slices)
+   - keep centerCard scaling & dots
+*/
+.features-section {
+  margin-top: 3.5rem;
+  padding-top: 0.5rem;
+}
+
+/* reduce default slick padding but keep small gutters */
+.slick-slide {
+  padding: 0.5rem;              /* small gutter around slides */
+  box-sizing: border-box;
+}
+
+/* Force slick track to use flex (slick sets it already but ensure correct behaviour) */
+.slick-track {
+  display: flex !important;
+  align-items: stretch;
+}
+
+/* Make the slide wrapper and inner content fill available width */
+.slick-slide > div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 100% !important;
+}
+
+/* Feature card: responsive & flexible */
+.feature-card {
+  position: relative;
+  border-radius: 12px;
+  min-height: 280px;            /* fluid baseline height */
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+  background-color: #111;       /* keep dark variant for contrast */
+  overflow: hidden;
+  color: #fff;
+  width: 100% !important;       /* force full width in each slide */
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Background image layer inside card */
+.card-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.36;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ensure textual content sits above bg */
+.feature-card h3,
+.feature-card p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+/* Title and description */
+.feature-title {
+  font-weight: 800;
+  font-size: 1.6rem;
+  line-height: 1.05;
+  color: var(--primary);
+  margin: 0.25rem 0 0.8rem;
+}
+.feature-desc {
+  color: var(--text-muted);
+  max-width: 46ch;
+  margin: 0 auto 0.5rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+/* Center slide visual boost (desktop & tablet) */
+.slick-center .feature-card {
+  transform: scale(1.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+/* Slick dots styling (keeps brand) */
+.slick-dots li button:before {
+  font-size: 10px;
+  color: var(--primary);
+}
+.slick-dots li.slick-active button:before {
+  color: var(--primary-600);
+}
+
+/* ---------------- CTA / Buttons used in this section ---------------- */
+.cta,
+.booking-hero-cta,
+.features-cta,
+.about-section .btn.btn-dark {
+  display: inline-block;
+  padding: 0.65rem 1.8rem;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 28px rgba(244,63,94,0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.cta:hover,
+.booking-hero-cta:hover,
+.features-cta:hover,
+.about-section .btn.btn-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(244,63,94,0.18);
+}
+
+/* ---------------- Booking section & card ---------------- */
+.booking-section { margin-top: 3.5rem; }
+.booking-row { display: flex; flex-wrap: wrap; align-items: stretch; }
+
+/* Left hero */
+.booking-img-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+  min-height: 420px;
+  height: 100%;
+  z-index: 1;
+}
+.booking-img-hero .booking-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.36) 60%, rgba(0,0,0,0.52) 100%);
+  border-radius: inherit;
+  z-index: 1;
+}
+.booking-hero-inner { position: relative; z-index: 2; text-align: center; color: #fff; max-width: 760px; }
+.booking-hero-pre { color: #fff; font-size: 1rem; margin-bottom: 0.6rem; font-weight: 500; opacity: 0.95; }
+.booking-hero-title { color: #fff; margin: 0 0 1.1rem 0; font-size: 2rem; line-height: 1.02; font-weight: 800; }
+
+/* Booking card (dark) */
+.booking-card.dark {
+  background: linear-gradient(180deg, #08090a 0%, #0b0d0f 100%);
+  color: #f6f3ee;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 14px 40px rgba(6,6,6,0.6);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 2;
+}
+.booking-card.dark h3 { color: #fff; font-weight: 700; margin-bottom: 0.25rem; }
+.booking-card.dark .text-muted { color: rgba(255,255,255,0.68); }
+
+/* Form controls inside booking card */
+.booking-card.dark .form-control,
+.booking-card.dark .form-select {
+  background: #0f1315;
+  border: 1px solid rgba(210,170,110,0.06);
+  color: #efe8dd;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  box-shadow: none;
+}
+.booking-card.dark .form-control::placeholder { color: rgba(255,255,255,0.45); }
+.booking-card.dark .form-label { color: rgba(255,255,255,0.78); font-weight: 500; }
+
+/* Time slots row */
+.time-slots { gap: 0.6rem; display:flex; flex-wrap:wrap; }
+.time-slot-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 0.45rem 0.65rem;
+  background: linear-gradient(180deg,#1e1b12, #2f2414);
+  color: #fde8c4;
+  border: 1px solid rgba(255,255,255,0.04);
+  min-width: 64px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(8,6,4,0.45);
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.time-slot-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(8,6,4,0.45); }
+.time-slot-btn[disabled] { opacity: 0.32; cursor: not-allowed; box-shadow: none; filter: grayscale(0.1); }
+.time-slot-btn.active {
+  background: linear-gradient(180deg, var(--primary), var(--primary-600));
+  color: #0b0b0b;
+  border: 1px solid rgba(0,0,0,0.12);
+  box-shadow: 0 12px 36px rgba(177,119,43,0.18);
+}
+
+/* Footer buttons in booking card */
+.booking-card.dark .btn.btn-primary.dark-cta {
+  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  border: 0;
+  color: #0b0b0b;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(244,63,94,0.12);
+}
+.booking-card.dark .reset-btn,
+.booking-card.dark .refresh-btn {
+  background: transparent;
+  color: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: 0.5rem 0.85rem;
+}
+.booking-card.dark .refresh-btn { padding: 0.35rem 0.6rem; }
+
+.booking-card.dark .booking-confirmation.alert {
+  background: rgba(255,255,255,0.03);
+  color: #efe8dd;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* ---------------- Responsive adjustments ---------------- */
+
+/* On smaller screens we want full-width single card per slide
+   and slightly smaller heights/padding for compact layout */
+@media (max-width: 768px) {
+  .feature-card { min-height: 240px; padding: 1rem; }
+  .feature-title { font-size: 1.4rem; }
+  .feature-desc { font-size: 0.95rem; max-width: 40ch; }
+}
+
+/* Critical mobile rules (ensures slick uses 100% slide width) */
+@media (max-width: 576px) {
+  .slick-slide { padding: 0.25rem; }
+  .feature-card { min-height: 220px; padding: 0.9rem; }
+  .feature-title { font-size: 1.25rem; }
+  .feature-desc { font-size: 0.92rem; max-width: 36ch; }
+
+  /* VERY IMPORTANT: force slick internal wrappers to let slides be 100% wide */
+/* Scoped mobile fix — applies only to the AboutUs features slider */
+.features-slider .slick-list,
+.features-slider .slick-track,
+.features-slider .slick-slide,
+.features-slider .slick-slide > div {
+  display: block !important;
+  width: 100% !important;
+  transform: none !important;
+  float: none !important;
+}
+
+
+  /* re-enable center visual by padding inside card rather than using centerMode */
+  .slick-center .feature-card { transform: none; box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+}
+
+/* general small-screen booking tweaks */
+@media (max-width: 991px) {
+  .booking-img-hero { min-height: 220px; padding: 1.25rem; }
+  .booking-card.dark { height: auto; margin-top: 1.25rem; }
+}
+
+/* ================= End of file ================= */

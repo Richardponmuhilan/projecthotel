@@ -1,10 +1,8 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { Link, Routes, Route } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUtensils } from '@fortawesome/free-solid-svg-icons';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+
+import React, { useState, useEffect } from 'react';
+import { Link, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Menu from './pages/Menu/Menu';
 import About from './pages/About/About';
@@ -13,41 +11,131 @@ import Footer from './components/Footer/Footer';
 import logo from './utils/images/indian_spice_house_logo.png';
 
 function App() {
-  return (
-    <div id='app'>
-      <Navbar expand='lg' className='fixed-top bg-body-tertiary shadow'>
-        <Container>
-          <Navbar.Brand>
-            <Link to='/' className='navbar-brand text-success d-flex align-items-center'>
-            <img
-                src={logo}
-                alt='Indian Spice House Logo'
-                className='d-inline-block align-top'
-                style={{ height: '80px', width: '100%' }} // adjust size as needed
-              />
-            </Link>
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
-          <Navbar.Collapse className='text-center' id='basiv-navbar-nav'>
-            <Nav className='me-auto justify-content-center w-100'>
-              <Link to='/' className='nav-link text-uppercase text-success text-center fw-semibold'>Home</Link>
-              <Link to='/menu' className='nav-link text-uppercase text-success text-center fw-semibold'>Menu</Link>
-              <Link to='/about' className='nav-link text-uppercase text-success text-center fw-semibold'>About</Link>
-              <Link to='/contact' className='nav-link text-uppercase text-success text-center fw-semibold'>Contact</Link>
-            </Nav>
-            <Link to='/contact'>
-              <button type='button' className='btn btn-success rounded-0 text-capitalize my-3 my-lg-0 ms-lg-4 text-nowrap'>Book a table</button>
-            </Link>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/menu' element={<Menu />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/contact' element={<Contact />} />
-      </Routes>
+  useEffect(() => {
+    // close mobile menu when route changes
+    setMobileOpen(false);
+  }, [location]);
+
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 12);
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // helper to mark active link
+  const isActive = (path) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(path);
+  };
+  
+
+  return (
+    <div id="app">
+      <header className={`app-header ${scrolled ? 'scrolled' : ''}`} role="banner">
+        <div className="app-header-inner">
+          <Link to="/" className="brand" aria-label="Home" onClick={() => setMobileOpen(false)}>
+            <img
+              src={logo}
+              alt="Indian Spice House Logo"
+              className="brand-logo"
+            />
+          
+          </Link>
+
+          <nav className="nav" aria-label="Primary navigation">
+            <Link to="/" className={`nav-item ${isActive('/') ? 'active' : ''}`}>Home</Link>
+            <Link to="/menu" className={`nav-item ${isActive('/menu') ? 'active' : ''}`}>Menu</Link>
+            <Link to="/about" className={`nav-item ${isActive('/about') ? 'active' : ''}`}>About</Link>
+            <Link to="/contact" className={`nav-item ${isActive('/contact') ? 'active' : ''}`}>Contact</Link>
+            <Link to="/contact" className="cta">Book a table</Link>
+          </nav>
+
+          <button
+            className="hamburger"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((s) => !s)}
+          >
+            <span
+              className="bar top"
+              style={{ transform: mobileOpen ? 'translateY(6px) rotate(45deg)' : 'none' }}
+            />
+            <span
+              className="bar mid"
+              style={{ opacity: mobileOpen ? 0 : 1 }}
+            />
+            <span
+              className="bar bottom"
+              style={{ transform: mobileOpen ? 'translateY(-6px) rotate(-45deg)' : 'none' }}
+            />
+          </button>
+        </div>
+
+        {/* mobile menu */}
+        <div className="mobile-menu" style={{ display: mobileOpen ? 'block' : 'none' }}>
+  <Link 
+    to="/" 
+    className={`mobile-link ${isActive('/') ? 'active' : ''}`} 
+    onClick={() => setMobileOpen(false)}
+  >
+    Home
+  </Link>
+  <Link 
+    to="/menu" 
+    className={`mobile-link ${isActive('/menu') ? 'active' : ''}`} 
+    onClick={() => setMobileOpen(false)}
+  >
+    Menu
+  </Link>
+  <Link 
+    to="/about" 
+    className={`mobile-link ${isActive('/about') ? 'active' : ''}`} 
+    onClick={() => setMobileOpen(false)}
+  >
+    About
+  </Link>
+  <Link 
+    to="/contact" 
+    className={`mobile-link ${isActive('/contact') ? 'active' : ''}`} 
+    onClick={() => setMobileOpen(false)}
+  >
+    Contact
+  </Link>
+  <Link 
+    to="/contact" 
+    className="mobile-link"
+    onClick={() => setMobileOpen(false)}
+  >
+   Book a table
+  </Link>
+  {/* <Link 
+    to="/contact" 
+    className="mobile-link cta" 
+    onClick={() => setMobileOpen(false)}
+  >
+    Book a table
+  </Link> */}
+</div>
+
+      </header>
+
+      <main>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/menu' element={<Menu />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
+        </Routes>
+      </main>
 
       <Footer />
     </div>
