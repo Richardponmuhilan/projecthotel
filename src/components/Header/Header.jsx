@@ -44,7 +44,7 @@ function Header() {
                   <Link to="/contact">
                     <button
                       type="button"
-                      className="btn btn-outline-light btn-lg rounded-0 text-capitalize mx-2 shadow"
+                      className="btn btn-outline-light btn-lg text-capitalize mx-2 shadow"
                     >
                       Contact us
                     </button>
@@ -80,7 +80,7 @@ function Header() {
                   <Link to="/contact">
                     <button
                       type="button"
-                      className="btn btn-outline-light btn-lg rounded-0 text-capitalize mx-2 shadow"
+                      className="btn btn-outline-light btn-lg  text-capitalize mx-2 shadow"
                     >
                       Contact us
                     </button>

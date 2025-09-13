@@ -17,6 +17,7 @@ import card4 from "../../utils/images/card4.jpg";
 import card5 from "../../utils/images/card5.jpg";
 import card6 from "../../utils/images/card6.jpg";
 import BookingImg from "../../utils/images/card6.jpg"; // placeholder: background image for booking
+import FeatureSlider from "../FeatureSlider/FeatureSlider.jsx"
 
 // custom hook (adjust path if needed)
 import { useTimeslots } from "../../hooks/useTimeslots";
@@ -235,7 +236,7 @@ function AboutUsSection() {
               </p>
 
               <Link to="/about">
-                <button type="button" className="btn btn-dark btn-lg rounded-0 text-capitalize shadow">More about us</button>
+                <button type="button" className="btn btn-dark btn-lg text-capitalize shadow">More about us</button>
               </Link>
             </motion.div>
           </div>
@@ -244,51 +245,7 @@ function AboutUsSection() {
           <div className="features-section container my-5">
             <div className="row justify-content-center">
               <div className="col-lg-10">
-                {/* responsive slider: render mobile-optimized slider when isMobileView === true */}
-                {isMobileView ? (
-                  <div className="features-slider-mobile-wrapper">
-                    <Slider
-                      {...{
-                        dots: true,
-                        infinite: true,
-                        speed: 500,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        centerMode: false,
-                        centerPadding: "0px",
-                        autoplay: true,
-                        autoplaySpeed: 3000,
-                        adaptiveHeight: true,
-                      }}
-                      className="features-slider-mobile"
-                    >
-                      {FEATURES.map((f, idx) => (
-                        <div key={f.img + idx} className="mobile-card">
-                          <div className="mobile-card-img">
-                            <img src={f.img} alt={f.title} />
-                          </div>
-                          <div className="mobile-card-body">
-                            <h3 className="feature-title">{f.title}</h3>
-                            <p className="feature-desc">{f.desc}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </Slider>
-                  </div>
-                ) : (
-                  <motion.div variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.01 }}>
-                    <Slider {...sliderSettings} className="features-slider-desktop">
-                      {FEATURES.map((f, idx) => (
-                        <motion.div key={f.img + idx} className="feature-card text-center" variants={cardVariant}>
-                          <img src={f.img} alt={f.title} className="card-bg-img" />
-                          <h3 className="feature-title">{f.title}</h3>
-                          <p className="feature-desc">{f.desc}</p>
-                        </motion.div>
-                      ))}
-                    </Slider>
-                  </motion.div>
-                )}
-
+                <FeatureSlider />
                 <div className="d-flex justify-content-center mt-4">
                   <Link to="/menu" className="btn booking-hero-cta">Order Now</Link>
                 </div>

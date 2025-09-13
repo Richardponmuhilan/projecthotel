@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header';
 import AboutUsSection from '../../components/AboutUsSection/AboutUsSection';
 import MenuSection from '../../components/MenuSection/MenuSection';
 import ContactSection from '../../components/ContactSection/ContactSection';
+import OfferSection from '../../pages/Offers/OfferSection'
 
 function Home() {
   return (
@@ -15,7 +16,7 @@ function Home() {
         <MenuSection />
 
         <ImageGallery />
-
+<OfferSection/>
         <ContactSection />
     </div>
   )

@@ -8,6 +8,7 @@ import Menu from './pages/Menu/Menu';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import OfferPage from './pages/offerpage/offerpage';
 import logo from './utils/images/indian_spice_house_logo.png';
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
           <nav className="nav" aria-label="Primary navigation">
             <Link to="/" className={`nav-item ${isActive('/') ? 'active' : ''}`}>Home</Link>
             <Link to="/menu" className={`nav-item ${isActive('/menu') ? 'active' : ''}`}>Menu</Link>
+            <Link to="/offers" className={`nav-item ${isActive('/offers') ? 'active' : ''}`}>Offers</Link>
             <Link to="/about" className={`nav-item ${isActive('/about') ? 'active' : ''}`}>About</Link>
             <Link to="/contact" className={`nav-item ${isActive('/contact') ? 'active' : ''}`}>Contact</Link>
             <Link to="/contact" className="cta">Book a table</Link>
@@ -97,6 +99,12 @@ function App() {
     Menu
   </Link>
   <Link 
+    to="/offers" 
+    className={`mobile-link ${isActive('/offers') ? 'active' : ''}`} 
+    onClick={() => setMobileOpen(false)}
+  >
+Offers  </Link>
+  <Link 
     to="/about" 
     className={`mobile-link ${isActive('/about') ? 'active' : ''}`} 
     onClick={() => setMobileOpen(false)}
@@ -134,6 +142,8 @@ function App() {
           <Route path='/menu' element={<Menu />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/offers' element={<OfferPage />} />
+
         </Routes>
       </main>
 

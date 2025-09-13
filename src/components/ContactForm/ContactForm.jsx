@@ -31,7 +31,7 @@ function ContactForm() {
             results.innerHTML = `
                 <div class="modal" id="modal">
                     <div class="modal-dialog d-flex align-items-center">
-                        <div class="modal-content rounded-0">
+                        <div class="modal-content ">
                             <div class="modal-header">
                                 <h5 class="modal-title">Thank You!</h5>
                             </div>
@@ -41,7 +41,7 @@ function ContactForm() {
                                 <p>See you soon!</p>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-success btn-lg rounded-0" data-bs-dismiss="modal" onClick="window.location.reload()">Close</button>
+                                <button type="button" class="btn btn-success btn-lg " data-bs-dismiss="modal" onClick="window.location.reload()">Close</button>
                             </div>
                         </div>
                     </div>
@@ -65,13 +65,13 @@ function ContactForm() {
                 <Form.Group className="row mb-3">
                     <Col className="mb-3 mb-md-0" md={6}>
                         <Form.Label htmlFor="first-name" className="text-capitalize">First name</Form.Label>
-                        <Form.Control className='rounded-0' type="text" name="first-name" id="first-name" value={firstName} onChange={(event) => setFirstName(event.target.value)} required />
+                        <Form.Control className='' type="text" name="first-name" id="first-name" value={firstName} onChange={(event) => setFirstName(event.target.value)} required />
                         <ValidFeedback />
                         <InvalidFeedback message='Please enter your first name.' />
                     </Col>
                     <Col md={6}>
                         <Form.Label htmlFor="last-name" className="text-capitalize">Last name</Form.Label>
-                        <Form.Control className='rounded-0' type="text" name="last-name" id="last-name" value={lastName} onChange={(event) => setLastName(event.target.value)}required />
+                        <Form.Control className='' type="text" name="last-name" id="last-name" value={lastName} onChange={(event) => setLastName(event.target.value)}required />
                         <ValidFeedback />
                         <InvalidFeedback message='Please enter your last name.' />
                     </Col>
@@ -80,13 +80,13 @@ function ContactForm() {
                 <Form.Group className="row mb-3">
                     <Col className="mb-3 mb-md-0" md={6}>
                         <Form.Label htmlFor="phone-number" className="text-capitalize">Phone number</Form.Label>
-                        <Form.Control className='rounded-0' type="tel" pattern="[0-9]{5}[0-9]{6}" name="phone-number" id="phone-number" value={phoneNumber} onChange={(event) => setPhoneNumber(event.target.value)} required />
+                        <Form.Control className='' type="tel" pattern="[0-9]{5}[0-9]{6}" name="phone-number" id="phone-number" value={phoneNumber} onChange={(event) => setPhoneNumber(event.target.value)} required />
                         <ValidFeedback />
                         <InvalidFeedback message='Please enter your mobile number.' />
                     </Col>
                     <Col md={6}>
                         <Form.Label htmlFor="email" className="text-capitalize">Email address</Form.Label>
-                        <Form.Control className='rounded-0' type="email" name="email" id="email" value={emailAddress} onChange={(event) => setEmailAddress(event.target.value)} required />
+                        <Form.Control className='' type="email" name="email" id="email" value={emailAddress} onChange={(event) => setEmailAddress(event.target.value)} required />
                         <ValidFeedback />
                         <InvalidFeedback message='Please enter your email address.' />
                     </Col>
@@ -95,13 +95,13 @@ function ContactForm() {
                 <Form.Group className="row mb-3">
                     <Col className="mb-3 mb-md-0" md={6}>
                         <Form.Label htmlFor="date">Date</Form.Label>
-                        <Form.Control className='rounded-0' type="date" name="date" id="date" value={date} onChange={(event) => setDate(event.target.value)}required />
+                        <Form.Control className='' type="date" name="date" id="date" value={date} onChange={(event) => setDate(event.target.value)}required />
                         <ValidFeedback />
                         <InvalidFeedback message='Please choose a date.' />
                     </Col>
                     <Col md={6}>
                         <Form.Label htmlFor="guests" className="text-capitalize">Number of guests</Form.Label>
-                        <Form.Control className='rounded-0' type="number" name="guests" id="guests" value={numberOfGuests} onChange={(event) => setNumberOfGuests(event.target.value)} required />
+                        <Form.Control className='' type="number" name="guests" id="guests" value={numberOfGuests} onChange={(event) => setNumberOfGuests(event.target.value)} required />
                         <ValidFeedback />
                         <InvalidFeedback message='Please choose the number of guests.' />
                     </Col>
@@ -109,10 +109,10 @@ function ContactForm() {
 
                 <Form.Group className="mb-3">
                     <Form.Label htmlFor="comments">Comments</Form.Label>
-                    <Form.Control className='rounded-0' as="textarea" name="comments" cols={20} rows={3} id="comments" value={comments} onChange={(event) => setComments(event.target.value)} />
+                    <Form.Control className='' as="textarea" name="comments" cols={20} rows={3} id="comments" value={comments} onChange={(event) => setComments(event.target.value)} />
                 </Form.Group>
 
-                <Button variant="success" type="submit" className='btn btn-lg rounded-0 mt-4' id="submit-btn">
+                <Button variant="success" type="submit" className='btn btn-lg  mt-4' id="submit-btn">
                     Submit
                 </Button>
             </Form>

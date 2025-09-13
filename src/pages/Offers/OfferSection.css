@@ -1,0 +1,141 @@
+/* OfferSection.css - desktop + mobile sliders (separate card styles) */
+
+.offer-section {
+    color: var(--text-primary);
+    padding: 1rem 0;
+  }
+  .offers-heading {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+  }
+  /* ---------------- Desktop slider friendliness ---------------- */
+  /* ensure each slide's direct child stretches so the card heights match */
+  .offers-slider-desktop .slick-slide > .slick-slide-inner {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    box-sizing: border-box;
+  }
+  
+  /* inner wrapper (we used .slick-slide-inner in JSX) */
+  .slick-slide-inner {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    box-sizing: border-box;
+  }
+  
+  /* the card inside each slide */
+  .offer-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+    width: 100%;
+    min-height: 320px; /* base height for desktop */
+    box-sizing: border-box;
+  }
+  
+  /* desktop image area */
+  .offer-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  
+  /* content stretches to take the remaining space — makes cards equal height */
+  .offer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1 1 auto;
+  }
+  
+  /* push desc upward and leave room for CTA if added */
+  .offer-desc {
+    color: var(--text-muted);
+    line-height: 1.45;
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+    /* if you prefer truncation, uncomment below:
+       display: -webkit-box;
+       -webkit-line-clamp: 4;
+       -webkit-box-orient: vertical;
+       overflow: hidden; */
+  }
+  
+  /* ---------------- Mobile slider styles (different card layout) ---------------- */
+  .offers-slider-mobile {
+    width: 100%;
+  }
+  
+  .offer-card-mobile {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 26px rgba(0,0,0,0.14);
+    margin: 0 6px;
+  }
+  
+  .offer-card-mobile-img img {
+    width: 100%;
+    height: 200px; /* mobile image height */
+    object-fit: cover;
+    display: block;
+  }
+  
+  .offer-card-mobile-body {
+    padding: 12px 14px;
+  }
+  .offer-card-mobile .offer-title {
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 8px;
+  }
+  .offer-card-mobile .offer-desc {
+    color: var(--text-muted);
+    margin: 0;
+  }
+  
+  /* ---------------- Responsive tweaks ---------------- */
+  @media (max-width: 992px) {
+    .offer-card { min-height: 300px; }
+    .offer-img { height: 160px; }
+  }
+  
+  @media (max-width: 576px) {
+    .offer-card { min-height: 0; } /* don't force desktop min height on mobile fallback */
+    .offer-img { height: 140px; }
+  
+    /* make slick dots and padding fit mobile */
+    .offers-slider-mobile .slick-slide { padding: 0 6px; }
+    .offers-slider-desktop .slick-slide { padding: 0 6px; }
+  }
+  
+  /* small polish */
+  .offer-title { font-size: 1.05rem; }
+  /* Explore more offers button */
+.explore-offers-btn {
+    padding: 12px 28px;
+    font-weight: 700;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+    color: #fff !important;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .explore-offers-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  }
+  
