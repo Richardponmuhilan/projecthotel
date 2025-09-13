@@ -248,7 +248,7 @@ function AboutUsSection() {
               <div className="col-lg-10">
                 <FeatureSlider />
                 <div className="d-flex justify-content-center mt-4">
-                  <Link to="/menu" className="btn booking-hero-cta">Order Now</Link>
+                  <Link to="/order" className="btn booking-hero-cta">Order Now</Link>
                 </div>
               </div>
             </div>
@@ -276,7 +276,7 @@ function AboutUsSection() {
                     <br />
                     Indian Foods
                   </h2>
-                  <Link to="/menu" className="btn booking-hero-cta">Order Now</Link>
+                  <Link to="/order" className="btn booking-hero-cta">Order Now</Link>
                 </div>
               </motion.div>
 
