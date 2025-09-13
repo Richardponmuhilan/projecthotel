@@ -156,7 +156,7 @@ function AboutUsSection() {
               initial={{ opacity: 0, x: -300 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9 }}
-              viewport={{ once: false, amount: 0.3 }}>
+              viewport={{ once: false, amount: 0.01 }}>
               <img src={AboutSectionImg} className="about-section-img img-fluid mt-5 mt-lg-0 shadow" alt="about us" />
             </motion.div>
 
@@ -165,7 +165,7 @@ function AboutUsSection() {
               initial={{ opacity: 0, x: 350 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9 }}
-              viewport={{ once: false, amount: 0.3 }}>
+              viewport={{ once: false, amount: 0.01 }}>
               <h2 className="headline mb-4 mb-lg-5">
                 <span className="white">Fresh.</span>{" "}
                 <span className="highlight">Authentic</span>{" "}

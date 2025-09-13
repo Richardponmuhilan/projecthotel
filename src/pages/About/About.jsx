@@ -27,7 +27,7 @@ function About() {
             initial={{ opacity: 0, x: -300 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            viewport={{ once: false, amount: 0.3 }}>
+            viewport={{ once: false, amount: 0.01}}>
           
             <h1 className="highlight">Where Every Meal Tells a Story from India.</h1>
 <p>
@@ -49,7 +49,7 @@ Come and experience India on a plate — right here in Łódź.</p>
             initial={{ opacity: 0, x: 350 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            viewport={{ once: false, amount: 0.3 }}>
+            viewport={{ once: false, amount: 0.01 }}>
           
             <img src={AboutChef1Img} className='img-fluid' alt="our staff" />
           </motion.div>

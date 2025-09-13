@@ -224,8 +224,8 @@
   @media (max-width: 768px) {
     .gallery-header { padding: 0 12px; flex-direction: column; align-items: flex-start; gap: 6px; }
     .gallery-underline { width: 120px; height: 3px; }
-    .gallery-title { font-size: 1.4rem; color: #111; }
-    .gallery-sub { color: rgba(0,0,0,0.5); }
+    .gallery-title { font-size: 1.4rem; color: orange; }
+    .gallery-sub { color: rgba(255, 255, 255, 0.6); }
   }
   
   /* If your site uses a dark page class, style header text for contrast */
