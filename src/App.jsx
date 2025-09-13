@@ -13,9 +13,9 @@ import logo from './utils/images/indian_spice_house_logo.png';
 import OrderOnline from "./components/OrderOnline/OrderOnline";
 import "leaflet/dist/leaflet.css";
 import ReservationPage from './pages/ReservationPage/ReservationPage';
+import ScrollToTop from './components/ScrollToTop';
 
 
-<Route path="/order" element={<OrderOnline />} />
 
 
 function App() {
@@ -152,7 +152,9 @@ Offers  </Link>
       </header>
 
       <main>
+      <ScrollToTop/>
         <Routes>
+      
           <Route path='/' element={<Home />} />
           <Route path='/menu' element={<Menu />} />
           <Route path='/about' element={<About />} />
